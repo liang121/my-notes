@@ -1,10 +1,12 @@
 # Anthropic's Boris Cherny: Why Coding Is Solved, and What Comes Next
 
-- **来源**：Sequoia Capital / YouTube
-- **URL**：https://www.youtube.com/watch?v=SlGRN8jh2RI
-- **时长**：24:36
+> Source: https://www.youtube.com/watch?v=SlGRN8jh2RI (Sequoia Capital / YouTube)
+> Collected: 2026-05-06
+> Published: Unknown
+
 - **嘉宾**：Boris Cherny（Claude Code 创建者，Anthropic）
 - **主持**：Lauren Reader（Sequoia）
+- **时长**：24:36
 
 ---
 
@@ -128,12 +130,3 @@ Boris 给的方向：
 - **Claude Code** 还有几个 feature 即将上线。
 - **massively parallelizing agents**(loop、batch 这类原语)。
 - **Computer use**。
-
----
-
-## 延伸思考(老板可能关心的点)
-
-- **`/loop` + routines** 是 Boris 反复 highlight 的工作方式 —— 老板自己已经在用 superpowers / loop skill，可对照他的用法（babysit PRs、CI 自愈、反馈聚类）扩展常驻 loop 列表。
-- **harness 重要性递减**论值得警惕：Boris 暗示当前所有 permission mode、prompt-injection 防护都是**临时脚手架**，随模型对齐成熟会被裁掉；做 Claude Code 周边工具时不要过度投资在这一层。
-- **"on distribution" 选型直觉**：自家代码库选 TypeScript + React 不是审美而是为了让模型更好用 —— 反推老板自己的项目选型时，可考虑"模型分布"是一个选型维度。
-- **printing press 类比**最值得再细嚼：**领域专家 + AI > 工程师 + AI**(会计师写会计软件比工程师更合适)。这对老板做工具型产品的目标用户定义有直接启示。

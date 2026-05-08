@@ -1,8 +1,9 @@
 # OpenClaw Plugin API 能力清单
 
-> 源头：`openclaw/src/plugins/types.ts` 中的 `OpenClawPluginApi` 类型（约 1680 行起）。
-> 扫描时间：2026-04-24
-> 用途：给插件开发者的能力面参考，clawos extension 是在此基础上再包一层"用 Next.js 写插件"的糖。
+> Source: openclaw/src/plugins/types.ts (OpenClawPluginApi 类型，约 1680 行起)
+> Collected: 2026-04-24
+> Published: Unknown
+> Note: 本地代码扫描结果，非外部发布材料。用途：给插件开发者的能力面参考，clawos extension 是在此基础上再包一层"用 Next.js 写插件"的糖。
 
 ---
 

@@ -1,10 +1,8 @@
 # Software Fundamentals Matter More Than Ever — Matt Pocock
 
-- **Source**: https://www.youtube.com/watch?v=v4F1gFy-hqg
-- **Speaker**: Matt Pocock (aihero.dev)
-- **Captured**: 2026-05-06 (YouTube auto-generated English captions, cleaned)
-
----
+> Source: https://www.youtube.com/watch?v=v4F1gFy-hqg (Matt Pocock / aihero.dev / YouTube)
+> Collected: 2026-05-06
+> Published: Unknown
 
 ## Thesis
 
