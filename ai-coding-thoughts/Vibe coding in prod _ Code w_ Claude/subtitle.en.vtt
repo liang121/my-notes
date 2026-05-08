@@ -1,0 +1,1284 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:05.680 --> 00:00:10.640
+Hey everyone, welcome. I'm here to talk&nbsp;
+about everyone's uh favorite subject,&nbsp;&nbsp;
+
+00:00:10.640 --> 00:00:19.840
+vibe coding. Uh and somewhat uh controversially,&nbsp;
+how to vibe code in prod responsibly. So let's&nbsp;&nbsp;
+
+00:00:19.840 --> 00:00:24.640
+uh let's talk about vibe coding and like&nbsp;
+uh what this even is. So first of all,&nbsp;&nbsp;
+
+00:00:24.640 --> 00:00:30.720
+I'm Eric. I'm a researcher at Enthropic uh focused&nbsp;
+on coding agents. Uh I was the author along with&nbsp;&nbsp;
+
+00:00:30.720 --> 00:00:37.280
+Barry Zang of building effective agents where we&nbsp;
+outlined uh for all of you our best science and&nbsp;&nbsp;
+
+00:00:37.280 --> 00:00:42.400
+best practices for creating agents no matter&nbsp;
+what the application is. Uh this is a subject&nbsp;&nbsp;
+
+00:00:42.400 --> 00:00:48.240
+that's near and dear to my heart. Uh last year I&nbsp;
+actually broke my hand while biking to work and&nbsp;&nbsp;
+
+00:00:48.240 --> 00:00:54.080
+was in a cast for two months and Claude wrote all&nbsp;
+of my code for those two months. And so figuring&nbsp;&nbsp;
+
+00:00:54.080 --> 00:00:59.200
+out how to make this happen effectively uh was&nbsp;
+really important to me and I was luckily able to&nbsp;&nbsp;
+
+00:00:59.200 --> 00:01:05.200
+figure that out well and sort of help u bring that&nbsp;
+into a lot of anthropics other products and in our&nbsp;&nbsp;
+
+00:01:05.200 --> 00:01:13.200
+models through my research. So let's first start&nbsp;
+talking about what is vibe coding. A lot of people&nbsp;&nbsp;
+
+00:01:13.200 --> 00:01:19.280
+really conflate vibe coding with just extensive&nbsp;
+use of AI to generate your code. But I think&nbsp;&nbsp;
+
+00:01:19.280 --> 00:01:24.960
+this isn't quite true. A lot of people, you know,&nbsp;
+they're using cursor, they're using co-pilot. Um,&nbsp;&nbsp;
+
+00:01:24.960 --> 00:01:31.120
+it's a lot of AI and a lot of the code is coming&nbsp;
+from the AI rather than them writing itself. But I&nbsp;&nbsp;
+
+00:01:31.120 --> 00:01:36.640
+think when you are still in a tight feedback loop&nbsp;
+with the model like that, that isn't truly vibe&nbsp;&nbsp;
+
+00:01:36.640 --> 00:01:43.200
+coding. When I say vibe coding, I think we need&nbsp;
+to go to Andre Carpathy's definition where vibe&nbsp;&nbsp;
+
+00:01:43.200 --> 00:01:48.800
+coding is where you fully give into the vibes,&nbsp;
+embrace exponentials, and forget that the code&nbsp;&nbsp;
+
+00:01:48.800 --> 00:01:56.000
+even exists. I think the key part here is forget&nbsp;
+the code even exists. And now the reason this is&nbsp;&nbsp;
+
+00:01:56.000 --> 00:02:02.400
+important is that vibe coding was when people&nbsp;
+outside of the engineering uh industry really&nbsp;&nbsp;
+
+00:02:02.400 --> 00:02:08.240
+started getting excited about code generation.&nbsp;
+Copilot and cursor were great but only sort of for&nbsp;&nbsp;
+
+00:02:08.240 --> 00:02:14.480
+uh engineers but someone that didn't know how to&nbsp;
+code uh suddenly with vibe coding they could find&nbsp;&nbsp;
+
+00:02:14.480 --> 00:02:19.520
+themselves coding an entire app by themselves.&nbsp;
+And this was a really exciting thing and a big&nbsp;&nbsp;
+
+00:02:19.520 --> 00:02:25.120
+unlock to a lot of people. Now, of course, uh&nbsp;
+there were a lot of downsides of this and you&nbsp;&nbsp;
+
+00:02:25.120 --> 00:02:31.040
+had people coding for the first time and really&nbsp;
+without knowing what they were doing at all. Um&nbsp;&nbsp;
+
+00:02:31.040 --> 00:02:35.680
+and you said, "Hey, you know, random things&nbsp;
+are happening, max out usage on my API keys,&nbsp;&nbsp;
+
+00:02:35.680 --> 00:02:41.040
+people are bypassing the subscription, creating&nbsp;
+random [&nbsp;__&nbsp;] on the DB." Uh, and so, you know,&nbsp;&nbsp;
+
+00:02:41.040 --> 00:02:47.360
+this this is kind of the downside of vibe coding&nbsp;
+of what started happening. And the positive sides&nbsp;&nbsp;
+
+00:02:47.360 --> 00:02:52.800
+of vibe coding that you'd see were all things&nbsp;
+that were really kind of low stakes. It was&nbsp;&nbsp;
+
+00:02:52.800 --> 00:02:59.600
+people building video games, building sort of fun&nbsp;
+side projects, things where uh it's okay if there&nbsp;&nbsp;
+
+00:02:59.600 --> 00:03:06.560
+was a bug. So, you know, why do we even care about&nbsp;
+vibe coding if it seems like something where the&nbsp;&nbsp;
+
+00:03:06.560 --> 00:03:12.560
+stakes are really high if you do it for a real&nbsp;
+product? And the most successful cases of it are&nbsp;&nbsp;
+
+00:03:12.560 --> 00:03:18.400
+kind of these toy examples or fun things where&nbsp;
+the stakes are very low. And my answer for why&nbsp;&nbsp;
+
+00:03:18.400 --> 00:03:26.480
+we should care about vibe coding is because of the&nbsp;
+exponential. The length of tasks that AI can do is&nbsp;&nbsp;
+
+00:03:26.480 --> 00:03:33.680
+doubling every seven months. Right now we're at&nbsp;
+about an hour. And that's fine. You don't need to&nbsp;&nbsp;
+
+00:03:33.680 --> 00:03:39.600
+vibe code. You can have cursor work for you. You&nbsp;
+can have clawed code write a feature that would&nbsp;&nbsp;
+
+00:03:39.600 --> 00:03:46.000
+take an hour. Um, and you can review all that code&nbsp;
+and you can be still be intimately involved uh,&nbsp;&nbsp;
+
+00:03:46.000 --> 00:03:51.200
+as the AI is writing a lot of your code. But&nbsp;
+what happens next year? What happens the year&nbsp;&nbsp;
+
+00:03:51.200 --> 00:03:56.960
+after that? When the AI is powerful enough that&nbsp;
+it can be generating an entire day's worth of&nbsp;&nbsp;
+
+00:03:56.960 --> 00:04:02.240
+work for you at a time or an entire week's worth&nbsp;
+of work, there is no way that we're going to be&nbsp;&nbsp;
+
+00:04:02.240 --> 00:04:09.200
+able to keep up with that if we still need to move&nbsp;
+in log stack. lock step. And that means that if we&nbsp;&nbsp;
+
+00:04:09.200 --> 00:04:15.600
+want to take advantage of this exponential, we&nbsp;
+are going to have to find a way to responsibly&nbsp;&nbsp;
+
+00:04:15.600 --> 00:04:22.400
+give into this and find some way to leverage this&nbsp;
+task. Um, I think my favorite analogy here is like&nbsp;&nbsp;
+
+00:04:22.400 --> 00:04:28.080
+compilers. I'm sure in the early day of compilers,&nbsp;
+a lot of developers, you know, really didn't trust&nbsp;&nbsp;
+
+00:04:28.080 --> 00:04:32.560
+them. They might use a compiler, but they'd still&nbsp;
+read the assembly that it would output to make&nbsp;&nbsp;
+
+00:04:32.560 --> 00:04:37.200
+sure it looks, you know, how they would write the&nbsp;
+assembly. But that just doesn't scale. You know,&nbsp;&nbsp;
+
+00:04:37.200 --> 00:04:41.920
+at a certain point, you start needing to work on&nbsp;
+systems that are big enough that you just have&nbsp;&nbsp;
+
+00:04:41.920 --> 00:04:47.680
+to trust the system. The question though is how&nbsp;
+do you do that responsibly? And I think sort of&nbsp;&nbsp;
+
+00:04:47.680 --> 00:04:53.680
+my challenge to the whole software industry&nbsp;
+over the next few years is how will we vibe&nbsp;&nbsp;
+
+00:04:53.680 --> 00:04:59.280
+code in prod and do it safely? And my answer&nbsp;
+to that is that we will forget that the code&nbsp;&nbsp;
+
+00:04:59.280 --> 00:05:05.600
+exists but not that the product exists. Thinking&nbsp;
+again to that compiler analogy, you know, we all&nbsp;&nbsp;
+
+00:05:05.600 --> 00:05:09.920
+still know that there's assembly under the hood,&nbsp;
+but hopefully most of us don't need to really&nbsp;&nbsp;
+
+00:05:09.920 --> 00:05:16.000
+think about what the assembly actually is. But we&nbsp;
+still, you know, are able to build good software&nbsp;&nbsp;
+
+00:05:16.000 --> 00:05:20.160
+without understanding that assembly under the&nbsp;
+hood. And I think that we will get to that same&nbsp;&nbsp;
+
+00:05:20.160 --> 00:05:29.040
+level with software. And one thing I really want&nbsp;
+to emphasize is that this is not a new problem.&nbsp;&nbsp;
+
+00:05:29.760 --> 00:05:37.840
+How does a CTO manage an expert in a domain where&nbsp;
+the CTO does not is not themselves an expert? How&nbsp;&nbsp;
+
+00:05:37.840 --> 00:05:43.360
+does a PM review an engineering feature when they&nbsp;
+themselves can't read all the code that went into&nbsp;&nbsp;
+
+00:05:43.360 --> 00:05:49.760
+it? Or how does a CEO check the accountant's&nbsp;
+work when they themselves are not an expert&nbsp;&nbsp;
+
+00:05:49.760 --> 00:05:55.280
+in financial accounting? And these are all, you&nbsp;
+know, problems that have existed for hundreds or&nbsp;&nbsp;
+
+00:05:55.280 --> 00:06:01.200
+thousands of years and we have solutions to&nbsp;
+them. A CTO can still write acceptance tests&nbsp;&nbsp;
+
+00:06:01.200 --> 00:06:05.840
+uh for an expert uh that works for them even if&nbsp;
+they don't understand the implementation under&nbsp;&nbsp;
+
+00:06:05.840 --> 00:06:12.640
+the hood. They can see that these acceptance tests&nbsp;
+pass and that the work is high quality. A product&nbsp;&nbsp;
+
+00:06:12.640 --> 00:06:17.680
+manager can use the product that their engineering&nbsp;
+team built and make sure that it works the way&nbsp;&nbsp;
+
+00:06:17.680 --> 00:06:24.320
+they expected uh even if they're not writing&nbsp;
+the code. And a CEO can spot check key facts&nbsp;&nbsp;
+
+00:06:24.320 --> 00:06:30.160
+that they do understand and slices of the data&nbsp;
+so that they can build confidence in the overall&nbsp;&nbsp;
+
+00:06:30.160 --> 00:06:36.560
+financial model even though they themselves might&nbsp;
+not be an expert in how the entire thing flows.&nbsp;&nbsp;
+
+00:06:36.560 --> 00:06:44.240
+And so thinking about these examples u managing&nbsp;
+implementations that you yourself don't understand&nbsp;&nbsp;
+
+00:06:44.240 --> 00:06:51.520
+is actually a problem as old as civilization. And&nbsp;
+every manager in the world is actually already&nbsp;&nbsp;
+
+00:06:51.520 --> 00:06:57.600
+dealing with this. Just we as software engineers&nbsp;
+are not used to this. We are used to being purely&nbsp;&nbsp;
+
+00:06:57.600 --> 00:07:02.800
+individual contributors where we understand&nbsp;
+the full depth down to the stack. But that's&nbsp;&nbsp;
+
+00:07:02.800 --> 00:07:08.320
+something that in order to become most productive,&nbsp;
+we are going to need to let go of in the way that&nbsp;&nbsp;
+
+00:07:08.320 --> 00:07:14.080
+every manager in order to be most productive is&nbsp;
+going to need to let go of some details. And just&nbsp;&nbsp;
+
+00:07:14.080 --> 00:07:18.880
+like us as software engineers, you know, we let&nbsp;
+go of some of the details of like understanding&nbsp;&nbsp;
+
+00:07:18.880 --> 00:07:25.280
+the assembly itself that's happening under the&nbsp;
+hood. And the way that you do this while still&nbsp;&nbsp;
+
+00:07:25.280 --> 00:07:32.240
+being safe and being responsible is to find an&nbsp;
+abstraction layer that you can verify even without&nbsp;&nbsp;
+
+00:07:32.240 --> 00:07:41.200
+knowing the implementation underneath it. Now I&nbsp;
+have one caveat to that today which is tech debt.&nbsp;&nbsp;
+
+00:07:41.200 --> 00:07:49.760
+So right now there is not a good way to uh measure&nbsp;
+or validate tech debt without reading the code&nbsp;&nbsp;
+
+00:07:49.760 --> 00:07:56.000
+yourself. Most other systems in life you know&nbsp;
+like the accountant example uh the PM uh you know&nbsp;&nbsp;
+
+00:07:56.000 --> 00:08:01.600
+you have ways to verify the things you care about&nbsp;
+without knowing the implementation. Tech I think&nbsp;&nbsp;
+
+00:08:01.600 --> 00:08:06.400
+is one of those rare things where there really&nbsp;
+isn't a good way to validate it other than being&nbsp;&nbsp;
+
+00:08:06.400 --> 00:08:11.760
+an expert in the implementation itself. So that is&nbsp;
+the one thing that right now we do not have a good&nbsp;&nbsp;
+
+00:08:11.760 --> 00:08:17.840
+way to validate. However, that doesn't mean that&nbsp;
+we can't do this at all. It just means we need to&nbsp;&nbsp;
+
+00:08:17.840 --> 00:08:25.280
+be very smart and targeted where aware of where&nbsp;
+we can uh take advantage of coding. My answer to&nbsp;&nbsp;
+
+00:08:25.280 --> 00:08:31.920
+this is to focus on leaf nodes in our codebase.&nbsp;
+And what I mean by that is parts of the code and&nbsp;&nbsp;
+
+00:08:31.920 --> 00:08:38.480
+parts of our system that uh nothing depends on&nbsp;
+them. they are kind of the end feature. They're&nbsp;&nbsp;
+
+00:08:38.480 --> 00:08:44.160
+the end beller whistle. Um rather than things that&nbsp;
+are the branch or trunks beneath them like here&nbsp;&nbsp;
+
+00:08:44.160 --> 00:08:49.840
+in white. Uh here the orange dots are all these&nbsp;
+leaf nodes where honestly if you have a system&nbsp;&nbsp;
+
+00:08:49.840 --> 00:08:56.320
+like this it's kind of okay if there is tectet in&nbsp;
+these leaf nodes because nothing else depends on&nbsp;&nbsp;
+
+00:08:56.320 --> 00:09:01.760
+them. They're unlikely to change. they're unlikely&nbsp;
+to have further things built on them versus the&nbsp;&nbsp;
+
+00:09:01.760 --> 00:09:07.200
+things that are in white here, the trunks and the&nbsp;
+underlying branches of your system. That is the&nbsp;&nbsp;
+
+00:09:07.200 --> 00:09:12.720
+core architecture that we as engineers still need&nbsp;
+to deeply understand because that's what's going&nbsp;&nbsp;
+
+00:09:12.720 --> 00:09:16.800
+to change. That's what other things are going&nbsp;
+to be built on and it's very important that&nbsp;&nbsp;
+
+00:09:16.800 --> 00:09:23.680
+we protect those and make sure that they stay&nbsp;
+extensible uh and understandable and flexible.&nbsp;&nbsp;
+
+00:09:23.680 --> 00:09:28.560
+Now the one thing I will say here is that the&nbsp;
+models are getting better all the time and so&nbsp;&nbsp;
+
+00:09:28.560 --> 00:09:33.040
+we might get to a world where you know this gets&nbsp;
+further and further down where we trust the models&nbsp;&nbsp;
+
+00:09:33.040 --> 00:09:39.200
+more and more to write code um that is extensible&nbsp;
+and doesn't have tech debt. Um using uh you know&nbsp;&nbsp;
+
+00:09:39.200 --> 00:09:44.160
+the clawed 4 models uh over the last week or two&nbsp;
+within anthropic has been a really exciting thing&nbsp;&nbsp;
+
+00:09:44.160 --> 00:09:50.160
+and I've I've given them much more trust uh than I&nbsp;
+did with uh 3.7. Um, so I think that this is going&nbsp;&nbsp;
+
+00:09:50.160 --> 00:09:56.320
+to change and sort of more and more of the stack&nbsp;
+we will be able to work with in this way. So let's&nbsp;&nbsp;
+
+00:09:56.320 --> 00:10:03.040
+talk about how to succeed at vibe coding. And my&nbsp;
+uh main advice here is ask not what Claude can do&nbsp;&nbsp;
+
+00:10:03.040 --> 00:10:08.800
+for you but what you can do for Claude. I think&nbsp;
+when you're vibe coding you are basically acting&nbsp;&nbsp;
+
+00:10:08.800 --> 00:10:14.400
+as a product manager for Claude. So you need to&nbsp;
+think like a product manager. What guidance or&nbsp;&nbsp;
+
+00:10:14.400 --> 00:10:20.080
+context would a new employee on your team need to&nbsp;
+succeed at this task? I think a lot of times we're&nbsp;&nbsp;
+
+00:10:20.080 --> 00:10:24.640
+too used to doing sort of a very quick back&nbsp;
+and forth chat with AI of make this feature,&nbsp;&nbsp;
+
+00:10:24.640 --> 00:10:30.400
+fix this bug, but a human if you know if it was&nbsp;
+their first day on the job uh and you just said,&nbsp;&nbsp;
+
+00:10:30.400 --> 00:10:35.520
+"Hey, implement you know this feature," there's no&nbsp;
+way you'd expect them to actually succeed at that.&nbsp;&nbsp;
+
+00:10:35.520 --> 00:10:40.240
+You need to give them a tour of the codebase. You&nbsp;
+need to tell them what are the actual requirements&nbsp;&nbsp;
+
+00:10:40.240 --> 00:10:46.000
+and specifications and constraints that they need&nbsp;
+to understand. And I think that as we vibe code,&nbsp;&nbsp;
+
+00:10:46.000 --> 00:10:52.000
+that becomes our responsibility to feed that&nbsp;
+information into Claude to make sure that it has&nbsp;&nbsp;
+
+00:10:52.000 --> 00:10:59.200
+all of that same context and is set up to succeed.&nbsp;
+When I'm working on features with Claude, I often&nbsp;&nbsp;
+
+00:10:59.200 --> 00:11:05.680
+spend 15 or 20 minutes collecting guidance into a&nbsp;
+single prompt and then let Claude cook after that.&nbsp;&nbsp;
+
+00:11:05.680 --> 00:11:10.960
+And that 15 or 20 minutes isn't just me, you&nbsp;
+know, writing the prompt by hand. This is often&nbsp;&nbsp;
+
+00:11:10.960 --> 00:11:16.080
+a separate conversation where I'm talking back and&nbsp;
+forth with Claude. It's exploring the codebase.&nbsp;&nbsp;
+
+00:11:16.080 --> 00:11:22.080
+It's looking for files. We're building a plan&nbsp;
+together that captures the essence of what I want,&nbsp;&nbsp;
+
+00:11:22.080 --> 00:11:27.040
+what files are going to need to be changed, what&nbsp;
+patterns in the codebase should it follow. And&nbsp;&nbsp;
+
+00:11:27.040 --> 00:11:31.680
+once I have that artifact, that all of that&nbsp;
+information, then I give it to Claude, either&nbsp;&nbsp;
+
+00:11:31.680 --> 00:11:37.600
+in a new context or say, "Hey, let's go execute&nbsp;
+this plan." And I've typically seen once I put&nbsp;&nbsp;
+
+00:11:37.600 --> 00:11:43.200
+that effort into collecting all that information,&nbsp;
+Claude has a very, very high success rate uh of&nbsp;&nbsp;
+
+00:11:43.200 --> 00:11:49.760
+being able to complete something in a very good&nbsp;
+way. And the other thing I'll say here is that&nbsp;&nbsp;
+
+00:11:49.760 --> 00:11:56.880
+you need to be able to ask the right questions.&nbsp;
+And uh despite the title uh of my of my talk,&nbsp;&nbsp;
+
+00:11:56.880 --> 00:12:01.520
+I don't think that vibe coding and prod is for&nbsp;
+everybody. I don't think that people that are&nbsp;&nbsp;
+
+00:12:01.520 --> 00:12:06.080
+fully non-technical should go and try to build&nbsp;
+a business fully from scratch. I think that is&nbsp;&nbsp;
+
+00:12:06.080 --> 00:12:11.600
+dangerous uh because they're not able to ask&nbsp;
+the right questions. They're not able to be an&nbsp;&nbsp;
+
+00:12:11.600 --> 00:12:17.120
+effective product manager for Claude when they&nbsp;
+do that and so they're not going to succeed.&nbsp;&nbsp;
+
+00:12:17.120 --> 00:12:23.040
+We recently merged a 22,000line change to our&nbsp;
+production reinforcement learning codebase&nbsp;&nbsp;
+
+00:12:23.040 --> 00:12:30.000
+that was written heavily by Claude. So how on&nbsp;
+earth did we do this responsibly? Uh and yes,&nbsp;&nbsp;
+
+00:12:30.000 --> 00:12:37.040
+this is the actual screenshot of like the diff uh&nbsp;
+from GitHub for the PR. Um the first thing is we,&nbsp;&nbsp;
+
+00:12:37.040 --> 00:12:41.600
+you know, asked what we could do for Claude. This&nbsp;
+wasn't just a single prompt that we then merged.&nbsp;&nbsp;
+
+00:12:41.600 --> 00:12:46.720
+There was still days of human work that went&nbsp;
+into this of coming up with the requirements,&nbsp;&nbsp;
+
+00:12:46.720 --> 00:12:52.400
+guiding Claude and figuring out what the system&nbsp;
+should be. And we really really embraced our roles&nbsp;&nbsp;
+
+00:12:52.400 --> 00:12:59.440
+as the product manager for Claude uh in this&nbsp;
+feature. The change was largely concentrated&nbsp;&nbsp;
+
+00:12:59.440 --> 00:13:05.200
+in leaf nodes in our codebase where we knew it&nbsp;
+was okay for there to be some tech debt because&nbsp;&nbsp;
+
+00:13:05.200 --> 00:13:10.480
+we didn't expect these parts of the codebase to&nbsp;
+need to change in the near future. And the parts&nbsp;&nbsp;
+
+00:13:10.480 --> 00:13:15.200
+of it that we did think were important that would&nbsp;
+need to be extensible, we did heavy human review&nbsp;&nbsp;
+
+00:13:15.200 --> 00:13:23.680
+of those parts. And lastly, we carefully designed&nbsp;
+stress tests for stability. Uh, and we designed&nbsp;&nbsp;
+
+00:13:23.680 --> 00:13:30.800
+the whole system so that it would have uh very&nbsp;
+easily human verifiable inputs and outputs. And&nbsp;&nbsp;
+
+00:13:30.800 --> 00:13:37.040
+what that let us do these last two pieces is it&nbsp;
+let us create these sort of verifiable checkpoints&nbsp;&nbsp;
+
+00:13:37.040 --> 00:13:42.400
+so that we could make sure that this was correct&nbsp;
+even without understanding or reading the full&nbsp;&nbsp;
+
+00:13:42.400 --> 00:13:47.440
+underlying implementation. Our biggest concern&nbsp;
+was stability and we were able to measure that&nbsp;&nbsp;
+
+00:13:47.440 --> 00:13:52.400
+even without reading the code by creating these&nbsp;
+stress tests and running them for long durations.&nbsp;&nbsp;
+
+00:13:52.400 --> 00:13:58.480
+Uh and we were able to verify correctness based&nbsp;
+on the input and outputs of the system that we&nbsp;&nbsp;
+
+00:13:58.480 --> 00:14:04.400
+designed it to have. So basically we designed&nbsp;
+this system to be understandable and verifiable&nbsp;&nbsp;
+
+00:14:04.400 --> 00:14:10.400
+even without without us reading all the code. And&nbsp;
+so ultimately by combining those things we were&nbsp;&nbsp;
+
+00:14:10.400 --> 00:14:15.520
+able to become just as confident in this change&nbsp;
+as any other change that we made to our codebase&nbsp;&nbsp;
+
+00:14:15.520 --> 00:14:20.400
+but deliver it in sort of a tiny fraction of the&nbsp;
+time and effort um that it would have taken to&nbsp;&nbsp;
+
+00:14:20.400 --> 00:14:26.880
+write this entire thing from hand uh by hand and&nbsp;
+review sort of every line of it. Um, and I think&nbsp;&nbsp;
+
+00:14:26.880 --> 00:14:33.040
+one of the really exciting things about this is&nbsp;
+is not just that this saved us, you know, a week,&nbsp;&nbsp;
+
+00:14:33.040 --> 00:14:39.600
+a week's worth of human time, but knowing that we&nbsp;
+could do this, it made us think differently about,&nbsp;&nbsp;
+
+00:14:39.600 --> 00:14:44.400
+you know, our engineering, about what we&nbsp;
+could do. And now suddenly when something&nbsp;&nbsp;
+
+00:14:44.400 --> 00:14:51.440
+costs one day of time instead of two weeks,&nbsp;
+you realize that you can go and make, you know,&nbsp;&nbsp;
+
+00:14:51.440 --> 00:14:56.880
+much bigger features and much bigger changes.&nbsp;
+uh sort of like the marginal cost of software&nbsp;&nbsp;
+
+00:14:56.880 --> 00:15:02.560
+is lower and it lets you consume and build more&nbsp;
+software. So I think that was the really exciting&nbsp;&nbsp;
+
+00:15:02.560 --> 00:15:08.560
+thing about this is not just saving the time but&nbsp;
+now kind of feeling like oh things that are going&nbsp;&nbsp;
+
+00:15:08.560 --> 00:15:12.960
+to take two weeks let's just do them. It only&nbsp;
+it's only going to take a day. Um and that's&nbsp;&nbsp;
+
+00:15:12.960 --> 00:15:17.760
+that's kind of the exciting thing here. So to&nbsp;
+leave you with the closing thoughts about how&nbsp;&nbsp;
+
+00:15:17.760 --> 00:15:24.960
+to vibe code in prod responsibly. Uh be Claude's&nbsp;
+PM. Ask not what Claude can do for you, but what&nbsp;&nbsp;
+
+00:15:24.960 --> 00:15:31.840
+you can do for Claude. Focus your vibe coding&nbsp;
+on the leaf nodes, not the core architecture and&nbsp;&nbsp;
+
+00:15:31.840 --> 00:15:38.160
+underlying systems so that if there is tech debt,&nbsp;
+it's contained and it's not in important areas.&nbsp;&nbsp;
+
+00:15:38.160 --> 00:15:44.960
+Think about verifiability and how you can know&nbsp;
+whether this change is correct without needing to&nbsp;&nbsp;
+
+00:15:44.960 --> 00:15:51.040
+go read the code yourself. And finally, remember&nbsp;
+the exponential. It's okay today if you don't vibe&nbsp;&nbsp;
+
+00:15:51.040 --> 00:15:57.600
+code, but in a year or two, it's going to be a&nbsp;
+huge huge disadvantage if you yourself are, you&nbsp;&nbsp;
+
+00:15:57.600 --> 00:16:02.960
+know, demanding that you read every single line&nbsp;
+of code uh or write every single line of code.&nbsp;&nbsp;
+
+00:16:02.960 --> 00:16:07.440
+You're going to not be able to take advantage of&nbsp;
+the newest wave of models that are able to produce&nbsp;&nbsp;
+
+00:16:07.440 --> 00:16:12.080
+very very large chunks of work for you. Uh and you&nbsp;
+are going to become the bottleneck if we don't get&nbsp;&nbsp;
+
+00:16:12.080 --> 00:16:17.440
+good at this. So overall that is uh vibe coding&nbsp;
+and prod responsibly. uh and I think this is going&nbsp;&nbsp;
+
+00:16:17.440 --> 00:16:21.040
+to become one of the biggest challenges for the&nbsp;
+software engineer for the software engineering&nbsp;&nbsp;
+
+00:16:21.040 --> 00:16:30.480
+industry over the next few years. Thank you. And&nbsp;
+I have uh plenty of time for questions. Yeah,
+
+00:16:30.480 --> 00:16:35.840
+in the past we spent a lot of time dealing with&nbsp;
+syntax problems or libraries or connections&nbsp;&nbsp;
+
+00:16:35.840 --> 00:16:42.960
+amongst components of the code and that was how&nbsp;
+we learn by coding like that. But how how do we&nbsp;&nbsp;
+
+00:16:42.960 --> 00:16:49.680
+learn now? How do we become better by coders? How&nbsp;
+do we know more to become better product managers&nbsp;&nbsp;
+
+00:16:49.680 --> 00:16:55.840
+of the agent KI? Yeah, so the uh I think this is&nbsp;
+a really interesting question and I think there&nbsp;&nbsp;
+
+00:16:55.840 --> 00:17:02.000
+are reasons to be very worried about this and also&nbsp;
+reasons to be very optimistic about this. I think&nbsp;&nbsp;
+
+00:17:02.000 --> 00:17:06.320
+the the reason to be worried like you mentioned&nbsp;
+is that you know we are not going to be there in&nbsp;&nbsp;
+
+00:17:06.320 --> 00:17:14.080
+the struggle in the grind. Um I think that that&nbsp;
+is actually okay. I've met uh you know some of my&nbsp;&nbsp;
+
+00:17:14.080 --> 00:17:18.720
+professors in college would say like ah man like&nbsp;
+coders today aren't as good because they never had&nbsp;&nbsp;
+
+00:17:18.720 --> 00:17:23.360
+to write their assembly by hand. They don't really&nbsp;
+feel the pain of you know how to make something&nbsp;&nbsp;
+
+00:17:23.360 --> 00:17:30.480
+run really fast. Um I think the positive side of&nbsp;
+this is that I have found that I'm able to learn&nbsp;&nbsp;
+
+00:17:30.480 --> 00:17:36.240
+about things so much more quickly by using these&nbsp;
+AI tools. A lot of times when I am coding with&nbsp;&nbsp;
+
+00:17:36.240 --> 00:17:41.200
+Claude um I'll be reviewing the code and I'll say&nbsp;
+hey Claude I've never seen this library before.&nbsp;&nbsp;
+
+00:17:41.200 --> 00:17:45.920
+Tell me about it. like what is it? Why did you&nbsp;
+choose it over another? And having sort of that&nbsp;&nbsp;
+
+00:17:45.920 --> 00:17:52.080
+always there pair programmer. Um like again I&nbsp;
+think what what's going to change is that people&nbsp;&nbsp;
+
+00:17:52.080 --> 00:17:57.600
+that are lazy are not going to learn. They're&nbsp;
+just going to glide by. But if you take the time&nbsp;&nbsp;
+
+00:17:57.600 --> 00:18:02.800
+and you want to learn, there's all these amazing&nbsp;
+resources and like Claude will help you understand&nbsp;&nbsp;
+
+00:18:02.800 --> 00:18:08.240
+what it vibe coded for you. Um, the other thing&nbsp;
+I will say is that for learning some of these&nbsp;&nbsp;
+
+00:18:08.240 --> 00:18:13.440
+higher level things about what makes a project&nbsp;
+go well, what is a feature that gets you product&nbsp;&nbsp;
+
+00:18:13.440 --> 00:18:19.040
+market fit versus flops, we're going to be able&nbsp;
+to take so many more shots on goal. I feel like&nbsp;&nbsp;
+
+00:18:19.040 --> 00:18:24.160
+uh especially sort of like system engineers or&nbsp;
+architects over it takes, you know, oftentimes&nbsp;&nbsp;
+
+00:18:24.160 --> 00:18:29.840
+like two years to like make a big change in a&nbsp;
+codebase and really kind of come to terms with&nbsp;&nbsp;
+
+00:18:29.840 --> 00:18:35.920
+was that a good architecture decision or not. And&nbsp;
+if we can collapse that time down to 6 months,&nbsp;&nbsp;
+
+00:18:35.920 --> 00:18:40.160
+I think engineers that are investing in their&nbsp;
+own time and trying to learn, they're going to be&nbsp;&nbsp;
+
+00:18:40.160 --> 00:18:45.440
+able to, you know, learn from four times as many&nbsp;
+lessons in the same amount of calendar time as&nbsp;&nbsp;
+
+00:18:45.440 --> 00:18:50.000
+long as they're putting in the effort to trying.&nbsp;
+Yeah. Going back to your pre-planning process,&nbsp;&nbsp;
+
+00:18:50.000 --> 00:18:54.640
+uh, what's the balance between giving it too much&nbsp;
+information and too little? Are you giving it a&nbsp;&nbsp;
+
+00:18:54.640 --> 00:18:58.960
+full product requirement document? Is there kind&nbsp;
+of a standardized template that you put together&nbsp;&nbsp;
+
+00:18:58.960 --> 00:19:04.000
+before you actually move into VIP coding? Yeah.&nbsp;
+Um, I think it depends a lot on what you care&nbsp;&nbsp;
+
+00:19:04.000 --> 00:19:11.520
+about. Um, I would say that uh if it ranges&nbsp;
+for there's for things where I don't really&nbsp;&nbsp;
+
+00:19:11.520 --> 00:19:16.640
+care how it does it, I won't talk at all about&nbsp;
+the implementation details. I'll just say these&nbsp;&nbsp;
+
+00:19:16.640 --> 00:19:20.720
+are my requirements like this is what I want&nbsp;
+at the end. There's other times where I know&nbsp;&nbsp;
+
+00:19:20.720 --> 00:19:25.760
+the codebase well and I will go into much more&nbsp;
+depth of like, hey, these are the classes you&nbsp;&nbsp;
+
+00:19:25.760 --> 00:19:31.040
+should use to implement this logic. Look at this&nbsp;
+example of a similar feature. Um, I'd say it all&nbsp;&nbsp;
+
+00:19:31.040 --> 00:19:36.080
+comes down to sort of what you care about at the&nbsp;
+end of the day. Um, I would say though that like&nbsp;&nbsp;
+
+00:19:36.080 --> 00:19:43.200
+our models do best when you don't over constrain&nbsp;
+them. So, um, you know, if you I wouldn't put too&nbsp;&nbsp;
+
+00:19:43.200 --> 00:19:49.120
+much effort into creating sort of a very rigorous&nbsp;
+uh, you know, format or anything. I would just,&nbsp;&nbsp;
+
+00:19:49.120 --> 00:19:56.160
+you know, think about it as like a junior engineer&nbsp;
+what you would give them in order to succeed.
+
+00:19:56.160 --> 00:20:04.720
+So, oh, sorry if I went too loud. Uh, how did&nbsp;
+you balance effectiveness and cyber security?&nbsp;&nbsp;
+
+00:20:04.720 --> 00:20:10.720
+Like there were reports a couple months back&nbsp;
+of like the top 10 vibecoded apps being super&nbsp;&nbsp;
+
+00:20:10.720 --> 00:20:16.160
+vulnerable and a lot of important information&nbsp;
+was released. Well, not released but proven to&nbsp;&nbsp;
+
+00:20:16.160 --> 00:20:21.920
+be released and the person who did it wasn't&nbsp;
+even like like a pro hacker and stuff and so&nbsp;&nbsp;
+
+00:20:21.920 --> 00:20:28.640
+like there's that. How did you balance being able&nbsp;
+to keep things secure even at a leaf node level&nbsp;&nbsp;
+
+00:20:28.640 --> 00:20:33.520
+uh and then also being effective because&nbsp;
+something can be effective but not secure? Yeah,&nbsp;&nbsp;
+
+00:20:33.520 --> 00:20:37.680
+that's a great question and I think that all&nbsp;
+comes down to this first point here of like&nbsp;&nbsp;
+
+00:20:37.680 --> 00:20:44.240
+being Claude's PM and understanding enough about&nbsp;
+the context to basically know what is dangerous,&nbsp;&nbsp;
+
+00:20:44.240 --> 00:20:49.600
+know what's safe, and know where you should be&nbsp;
+careful. And I think yeah, the the things that&nbsp;&nbsp;
+
+00:20:49.600 --> 00:20:54.080
+uh get a lot of press about vibe coding are&nbsp;
+people that have no business coding at all&nbsp;&nbsp;
+
+00:20:54.080 --> 00:20:57.600
+uh doing these. And that's fine. That's&nbsp;
+great for games. That's great for like&nbsp;&nbsp;
+
+00:20:57.600 --> 00:21:02.800
+uh creativity and like having people be able&nbsp;
+to create. But I think for production systems,&nbsp;&nbsp;
+
+00:21:02.800 --> 00:21:08.640
+you need to know enough about like what questions&nbsp;
+to ask to guide Claude in the right direction. And&nbsp;&nbsp;
+
+00:21:08.640 --> 00:21:13.520
+for our internal case of this this example, um&nbsp;
+it was something that's fully offline. And so&nbsp;&nbsp;
+
+00:21:13.520 --> 00:21:18.960
+we knew there weren't any like there were uh we&nbsp;
+were very very confident that there was like no&nbsp;&nbsp;
+
+00:21:18.960 --> 00:21:23.440
+security problems that could happen into this.&nbsp;
+Uh in our case it's like run in something that's&nbsp;&nbsp;
+
+00:21:23.440 --> 00:21:32.240
+that's fully offline. Uh so this is more about&nbsp;
+people you're mentioning as like have no business&nbsp;&nbsp;
+
+00:21:32.240 --> 00:21:37.120
+and maybe I shouldn't have said it like that&nbsp;
+but no business vibe coding in production for&nbsp;&nbsp;
+
+00:21:37.120 --> 00:21:42.160
+an important system. I will say I will say that.&nbsp;
+Yeah. But but if if we look at the numbers right&nbsp;&nbsp;
+
+00:21:42.160 --> 00:21:50.560
+we Less than 0.5% of the world's population are&nbsp;
+software developers and software is an amazing way&nbsp;&nbsp;
+
+00:21:50.560 --> 00:22:00.240
+to scale ideas. So how do you think the products&nbsp;
+need to change to make it easier for people to&nbsp;&nbsp;
+
+00:22:00.240 --> 00:22:06.400
+v code and build software while also avoiding&nbsp;
+some of the things that we run into with people&nbsp;&nbsp;
+
+00:22:06.400 --> 00:22:11.040
+leaking API keys and things like that? That's a&nbsp;
+really great question and I would be super excited&nbsp;&nbsp;
+
+00:22:11.040 --> 00:22:17.520
+to see more products and frameworks emerge that&nbsp;
+are kind of like provably correct. Uh, and maybe&nbsp;&nbsp;
+
+00:22:17.520 --> 00:22:23.440
+what I mean by that is I'm sure people could build&nbsp;
+some backend systems that the important off parts,&nbsp;&nbsp;
+
+00:22:23.440 --> 00:22:30.080
+the payment parts are built for you and all you&nbsp;
+have to do is sort of fill in the UI layer. Um,&nbsp;&nbsp;
+
+00:22:30.080 --> 00:22:35.600
+and you know, you can vibe code that and it&nbsp;
+basically gives you some nice fill-in-the-blank&nbsp;&nbsp;
+
+00:22:35.600 --> 00:22:41.360
+sandboxes where to put your code. Um, I feel like&nbsp;
+there's tons of things like that that could exist.&nbsp;&nbsp;
+
+00:22:41.360 --> 00:22:48.560
+And maybe like the simplest example is like claude&nbsp;
+artifacts where uh Claude can help you write,&nbsp;&nbsp;
+
+00:22:48.560 --> 00:22:54.080
+you know, code that gets hosted right there um&nbsp;
+in Claude AI to display. And of course that is&nbsp;&nbsp;
+
+00:22:54.080 --> 00:22:59.600
+safe because it is very limited. There is no off&nbsp;
+there is no payments. It's it's front end only.&nbsp;&nbsp;
+
+00:22:59.600 --> 00:23:03.680
+But uh maybe that's a good like product idea&nbsp;
+that someone should do here is is build some&nbsp;&nbsp;
+
+00:23:03.680 --> 00:23:09.600
+way to make like a provably correct hosting system&nbsp;
+that can have a backend that you know is safe no&nbsp;&nbsp;
+
+00:23:09.600 --> 00:23:14.080
+matter what shenanigans happens on the front end.&nbsp;
+But yeah, I hope people build good tools that are&nbsp;&nbsp;
+
+00:23:14.080 --> 00:23:21.760
+complements to vibe coding. Hi. Um so for test&nbsp;
+driven development, do you have any tips because&nbsp;&nbsp;
+
+00:23:21.760 --> 00:23:27.280
+like I often see that cloud just splits out the&nbsp;
+entire implementation and then writes test cases.&nbsp;&nbsp;
+
+00:23:27.280 --> 00:23:32.560
+um sometimes they don't they fail and then I just&nbsp;
+want you know I'm trying to prompt it to write the&nbsp;&nbsp;
+
+00:23:32.560 --> 00:23:37.680
+test cases first but I also don't want to like you&nbsp;
+know verify them by myself because I haven't seen&nbsp;&nbsp;
+
+00:23:37.680 --> 00:23:43.120
+implementation yet so do you have an iteratable&nbsp;
+approach that you know have you ever tried it&nbsp;&nbsp;
+
+00:23:43.120 --> 00:23:48.160
+for yeah test driven development yeah yeah I I&nbsp;
+definitely uh test driven development is very&nbsp;&nbsp;
+
+00:23:48.160 --> 00:23:54.240
+very useful in vibe coding um as long as you can&nbsp;
+understand what the test cases are even without&nbsp;&nbsp;
+
+00:23:54.240 --> 00:23:58.560
+that it helps claude sort of be a little bit more&nbsp;
+self consistent even if you yourself don't look&nbsp;&nbsp;
+
+00:23:58.560 --> 00:24:04.400
+at the tests. Um, but a lot of times, uh, I'd say&nbsp;
+it's easy for Claude to go down a rabbit hole of&nbsp;&nbsp;
+
+00:24:04.400 --> 00:24:09.920
+writing tests that are like too implementation&nbsp;
+specific. Um, when I'm trying to do this,&nbsp;&nbsp;
+
+00:24:09.920 --> 00:24:17.840
+a lot of times I will encourage I will give Claude&nbsp;
+examples of like, hey, just write three endto-end&nbsp;&nbsp;
+
+00:24:17.840 --> 00:24:23.760
+tests and, you know, do the happy path, an&nbsp;
+error case, and this other error case. Um,&nbsp;&nbsp;
+
+00:24:23.760 --> 00:24:30.320
+and I'm kind of like very prescriptive about that.&nbsp;
+I want the test to be like general and end to end.&nbsp;&nbsp;
+
+00:24:30.320 --> 00:24:36.800
+And I think that helps make sure it's something&nbsp;
+that I can understand um, and it's something that,&nbsp;&nbsp;
+
+00:24:36.800 --> 00:24:42.960
+um, uh, that Claude can do without getting too in&nbsp;
+the weeds. I'll also say a lot of times uh when&nbsp;&nbsp;
+
+00:24:42.960 --> 00:24:47.760
+I'm vibe coding the only part of the code or at&nbsp;
+least the first part of the code that I'll read&nbsp;&nbsp;
+
+00:24:47.760 --> 00:24:52.720
+is the tests to make sure that you know if I&nbsp;
+agree with the tests and the tests pass then&nbsp;&nbsp;
+
+00:24:52.720 --> 00:24:57.920
+I feel pretty good about the code. Um that works&nbsp;
+best if you can encourage Claude to write sort of&nbsp;&nbsp;
+
+00:24:57.920 --> 00:25:03.840
+very minimalist endto-end tests. Thank you for the&nbsp;
+very fascinating talk. Um, I also appreciate that&nbsp;&nbsp;
+
+00:25:03.840 --> 00:25:08.880
+you've done what a lot of people haven't done and&nbsp;
+tried to interpret one of the more peculiar lines&nbsp;&nbsp;
+
+00:25:08.880 --> 00:25:14.880
+in Karpathy's original post, embrace exponentials.&nbsp;
+So, I wonder if I could pin you down a little more&nbsp;&nbsp;
+
+00:25:14.880 --> 00:25:22.400
+and say, how would I know if I've embraced the&nbsp;
+exponentials? Like, what precisely means following&nbsp;&nbsp;
+
+00:25:22.400 --> 00:25:27.040
+that advice? And and to maybe put it down a&nbsp;
+little more in what I think it intends to mean,&nbsp;&nbsp;
+
+00:25:27.040 --> 00:25:33.920
+it sort of maybe alludes to this, the models&nbsp;
+will get better. Um, do you think there's&nbsp;&nbsp;
+
+00:25:33.920 --> 00:25:38.800
+some legitimacy in saying just the fact that the&nbsp;
+models will get better doesn't mean they'll get&nbsp;&nbsp;
+
+00:25:38.800 --> 00:25:44.240
+better at every conceivable dimension we might be&nbsp;
+imagining we hope they'll they'll be in. Yeah. Uh,&nbsp;&nbsp;
+
+00:25:44.240 --> 00:25:49.760
+so yeah. So how do I embrace exponentials,&nbsp;
+sir? Yeah, absolutely. So the uh I think you&nbsp;&nbsp;
+
+00:25:49.760 --> 00:25:55.200
+got close with sort of the the quote of uh keep&nbsp;
+assuming the models are going to get better,&nbsp;&nbsp;
+
+00:25:55.200 --> 00:26:00.080
+but it's a step beyond that. the the idea of&nbsp;
+the exponential is not just that they're going&nbsp;&nbsp;
+
+00:26:00.080 --> 00:26:06.400
+to keep getting better, but they're going to get&nbsp;
+better faster than we can possibly imagine. Um,&nbsp;&nbsp;
+
+00:26:06.400 --> 00:26:11.760
+and that's kind of like when you you can kind of&nbsp;
+see the shape of the dots here. It's it's not just&nbsp;&nbsp;
+
+00:26:11.760 --> 00:26:16.480
+that it's getting steadily better, it's that it's&nbsp;
+getting better and then it's it goes wild. Um,&nbsp;&nbsp;
+
+00:26:16.480 --> 00:26:21.760
+I think the other funny quote I heard from this&nbsp;
+this was a I think in uh Daario and Mike Kger's&nbsp;&nbsp;
+
+00:26:21.760 --> 00:26:26.960
+talk is uh machines of loving grace is not science&nbsp;
+fiction. It's a product roadmap. uh even though&nbsp;&nbsp;
+
+00:26:26.960 --> 00:26:32.720
+it sounds like something that's very far out like&nbsp;
+when you are on an exponential uh things get wild&nbsp;&nbsp;
+
+00:26:32.720 --> 00:26:38.080
+very very fast and faster than you expect. Um, and&nbsp;
+I think, you know, if you if you talk to someone&nbsp;&nbsp;
+
+00:26:38.080 --> 00:26:42.640
+that was doing computers in the 90s, it's like,&nbsp;
+okay, great. We have a couple kilobytes of RAM.&nbsp;&nbsp;
+
+00:26:42.640 --> 00:26:47.760
+We have a couple more kilobytes of RAM. Uh, but&nbsp;
+if you fast forward to where we are now, it's like&nbsp;&nbsp;
+
+00:26:47.760 --> 00:26:53.040
+we have terabytes. And it's like, it's not just&nbsp;
+that it got twice as good, it's that things got&nbsp;&nbsp;
+
+00:26:53.040 --> 00:26:58.960
+millions of times better. And that's what happens&nbsp;
+with exponentials over a course of 20 years. So,&nbsp;&nbsp;
+
+00:26:58.960 --> 00:27:03.840
+we shouldn't think about 20 years from now is like&nbsp;
+what happens if these models are twice as good.&nbsp;&nbsp;
+
+00:27:03.840 --> 00:27:08.080
+We should think about what happens if these models&nbsp;
+are a million times smarter and faster than they&nbsp;&nbsp;
+
+00:27:08.080 --> 00:27:12.480
+are today, which is wild. Like I we can't even&nbsp;
+think about what that means. In the same way that&nbsp;&nbsp;
+
+00:27:12.480 --> 00:27:17.200
+someone working on computers in the 90s, I don't&nbsp;
+think they could think about what would happen to&nbsp;&nbsp;
+
+00:27:17.200 --> 00:27:22.640
+society if a computer was a million times faster&nbsp;
+than what they were working with. But that's what&nbsp;&nbsp;
+
+00:27:22.640 --> 00:27:27.280
+happened. And so that's what we mean by the&nbsp;
+exponential is it's going to go bonkers. All&nbsp;&nbsp;
+
+00:27:27.280 --> 00:27:34.160
+right. Yes. I got a couple well I got one question&nbsp;
+but it it's kind it's kind of two parts. The first&nbsp;&nbsp;
+
+00:27:34.160 --> 00:27:39.520
+part when it comes to via coding I have like two&nbsp;
+different workflows. I have one where I'm in my&nbsp;&nbsp;
+
+00:27:39.520 --> 00:27:47.440
+terminal and then I have one when I'm in VS code&nbsp;
+or cursor. Um which which workflow do you use and&nbsp;&nbsp;
+
+00:27:47.440 --> 00:27:55.200
+if you're using cloud code in the terminal how&nbsp;
+often do you compact? Because what I find is&nbsp;&nbsp;
+
+00:27:55.200 --> 00:28:01.680
+um my functions will get a new name as the longer&nbsp;
+I vibe code or you know just things kind of go&nbsp;&nbsp;
+
+00:28:01.680 --> 00:28:07.200
+off the rails the longer I go and if I compact&nbsp;
+it still happens if I create like a document to&nbsp;&nbsp;
+
+00:28:07.200 --> 00:28:13.360
+kind of guide it I still have to you know get it&nbsp;
+back on track. Yeah. Yeah. Great question. Um I do&nbsp;&nbsp;
+
+00:28:13.360 --> 00:28:20.320
+both. I often uh code with uh clawed code open in&nbsp;
+my terminal in VS Code. Um, and I'd say that like&nbsp;&nbsp;
+
+00:28:20.320 --> 00:28:27.520
+clawed code is doing most of the editing and I'm&nbsp;
+kind of reviewing the code um as I go in uh in VS&nbsp;&nbsp;
+
+00:28:27.520 --> 00:28:31.840
+Code, which you know is not true vibe coding in&nbsp;
+the sense here. Uh, or maybe I'm reviewing just&nbsp;&nbsp;
+
+00:28:31.840 --> 00:28:38.000
+the tests uh from it. Um, I like to compact&nbsp;
+or just start a new session kind of whenever&nbsp;&nbsp;
+
+00:28:38.000 --> 00:28:44.400
+I get clawed to a good stopping point where it&nbsp;
+kind of feels like, okay, as a human programmer,&nbsp;&nbsp;
+
+00:28:44.400 --> 00:28:49.680
+like when would I kind of stop and take a break&nbsp;
+and maybe like go get lunch and then come back.&nbsp;&nbsp;
+
+00:28:49.680 --> 00:28:54.480
+If I feel like I'm at that kind of stage, that's&nbsp;
+like a good time to compact. So maybe I'll start&nbsp;&nbsp;
+
+00:28:54.480 --> 00:29:00.480
+off with having Claude find all the relevant files&nbsp;
+and and make a plan and then I'll say okay like&nbsp;&nbsp;
+
+00:29:00.480 --> 00:29:06.480
+you know write all this into a document and then&nbsp;
+I'll compact and that gets rid of 100k tokens that&nbsp;&nbsp;
+
+00:29:06.480 --> 00:29:12.880
+it took to create that plan and find all these&nbsp;
+files and boils it down to a few thousand tokens.
+
+00:29:14.320 --> 00:29:21.600
+Hey uh so one question is following up uh his&nbsp;
+previous question which is uh have you used&nbsp;&nbsp;
+
+00:29:21.600 --> 00:29:27.600
+other tools along with cloud code to like increase&nbsp;
+your speed a little bit more like running multiple&nbsp;&nbsp;
+
+00:29:27.600 --> 00:29:33.440
+cloud codes together using git work trees and then&nbsp;
+like sort of merging few things or stack PRs or&nbsp;&nbsp;
+
+00:29:33.440 --> 00:29:37.760
+something like that. Is that something that you&nbsp;
+like personally follow or would advise to? Second&nbsp;&nbsp;
+
+00:29:37.760 --> 00:29:44.800
+question is um how do you like how do you very&nbsp;
+structurally and like in a very nice engineering&nbsp;&nbsp;
+
+00:29:44.800 --> 00:29:52.160
+like um like way approach a part of the codebase&nbsp;
+that you're not very familiar with but you want to&nbsp;&nbsp;
+
+00:29:52.160 --> 00:29:57.520
+like ship a PR in it really fast and you want to&nbsp;
+do it in a really nice way and not wipe code it.&nbsp;&nbsp;
+
+00:29:57.520 --> 00:30:03.360
+So yeah like what what are the what are your ways&nbsp;
+of like using cloud code to help do both these&nbsp;&nbsp;
+
+00:30:03.360 --> 00:30:09.920
+things? Yep. Uh, yeah. So, I definitely use clawed&nbsp;
+code as well as cursor. Um, and I'd say typically&nbsp;&nbsp;
+
+00:30:09.920 --> 00:30:15.600
+I'll like start things with clawed code and then&nbsp;
+I'll use cursor to fix things up. Or if I was&nbsp;&nbsp;
+
+00:30:15.600 --> 00:30:20.800
+like if I have very specific changes, if I know&nbsp;
+exactly the change that I want to do to this file,&nbsp;&nbsp;
+
+00:30:20.800 --> 00:30:25.760
+I'll just do it myself uh with cursor and sort of&nbsp;
+target the exact lines that I know need to change.&nbsp;&nbsp;
+
+00:30:25.760 --> 00:30:32.960
+Um the second part of your question was um oh&nbsp;
+yeah like uh how to get spun up on a new part&nbsp;&nbsp;
+
+00:30:32.960 --> 00:30:39.920
+of the codebase. Um before I start trying to write&nbsp;
+the feature I use clawed code to help me explore&nbsp;&nbsp;
+
+00:30:39.920 --> 00:30:46.560
+the codebase. So I might say like tell me where&nbsp;
+in this codebase off happens or you know where in&nbsp;&nbsp;
+
+00:30:46.560 --> 00:30:52.400
+this codebase something happens. Tell me similar&nbsp;
+features to this and like have it tell me the file&nbsp;&nbsp;
+
+00:30:52.400 --> 00:30:57.040
+names. Have it tell me the classes that I should&nbsp;
+look at. Um, and then kind of use that to try to&nbsp;&nbsp;
+
+00:30:57.040 --> 00:31:02.240
+build up a a mental picture to make sure that I&nbsp;
+can do this and not vibe code. Make sure I can&nbsp;&nbsp;
+
+00:31:02.240 --> 00:31:07.200
+still get like a a good sense of what's happening.&nbsp;
+And then I go work on the feature with Claude. Uh,&nbsp;&nbsp;
+
+00:31:07.200 --> 00:31:15.680
+thank you so much. I'll be still around&nbsp;
+and can Miller and answer other questions.
+
